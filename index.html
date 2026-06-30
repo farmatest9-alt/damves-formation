@@ -194,12 +194,35 @@
   .inc-item h4{font-family:'Fraunces', serif; font-weight:600; font-size:17px; margin:8px 0 6px;}
   .inc-item p{font-size:14px; color:rgba(244,238,226,0.66);}
 
+  .pay-grid{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:20px;
+  }
+  @media (max-width:640px){ .pay-grid{grid-template-columns:1fr;} }
   .pay-box{
     background:var(--green);
     border-radius:6px;
     padding:30px;
     display:flex; flex-direction:column; gap:18px;
   }
+  .pay-box-wave{
+    background:#0E2A4D;
+  }
+  .pay-tag{
+    font-family:'Space Mono', monospace; font-size:12px; letter-spacing:0.05em;
+    text-transform:uppercase; color:var(--paper); background:rgba(255,255,255,0.14);
+    display:inline-block; padding:4px 12px; border-radius:99px; align-self:flex-start;
+  }
+  .pay-tag-wave{background:rgba(255,255,255,0.16);}
+  .pay-header{display:flex; align-items:center; gap:12px;}
+  .pay-logo{
+    width:38px; height:38px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Space Mono', monospace; font-weight:700; font-size:13px;
+    flex-shrink:0; color:#fff;
+  }
+  .pay-logo-orange{background:#FF7900;}
+  .pay-logo-wave{background:#1DC8F2; color:#001A4D; font-size:18px;}
+  .pay-final-note{margin-top:20px;}
   .ussd{
     font-family:'Space Mono', monospace;
     background:rgba(0,0,0,0.25);
@@ -406,16 +429,36 @@
   </section>
 
   <section class="section" id="paiement">
-    <div class="section-label">04 — Paiement Orange Money</div>
-    <h2>Compose le code, indique le montant de ta formation.</h2>
-    <div class="pay-box">
-      <div class="ussd">*144*10*57420577*Montant#</div>
-      <ol class="pay-steps">
-        <li>Remplace <strong>Montant</strong> par le prix de la formation choisie (ex. 5000).</li>
-        <li>Valide la transaction Orange Money sur ton téléphone.</li>
-        <li>Garde la confirmation, puis envoie une capture dans le formulaire ci-dessous.</li>
-      </ol>
+    <div class="section-label">04 — Paiement</div>
+    <h2>Choisis ton moyen de paiement et indique le montant.</h2>
+
+    <div class="pay-grid">
+      <div class="pay-box">
+        <div class="pay-header">
+          <span class="pay-logo pay-logo-orange">OM</span>
+          <span class="pay-tag">Orange Money</span>
+        </div>
+        <div class="ussd">*144*10*57420577*Montant#</div>
+        <ol class="pay-steps">
+          <li>Remplace <strong>Montant</strong> par le prix de la formation choisie (ex. 5000).</li>
+          <li>Valide la transaction Orange Money sur ton téléphone.</li>
+        </ol>
+      </div>
+
+      <div class="pay-box pay-box-wave">
+        <div class="pay-header">
+          <span class="pay-logo pay-logo-wave">〜</span>
+          <span class="pay-tag pay-tag-wave">Wave</span>
+        </div>
+        <div class="ussd">57420577</div>
+        <ol class="pay-steps">
+          <li>Ouvre ton app Wave, choisis "Envoyer", entre ce numéro.</li>
+          <li>Indique le montant exact de la formation choisie.</li>
+        </ol>
+      </div>
     </div>
+
+    <p class="form-note pay-final-note">Quel que soit le moyen choisi, garde ta confirmation puis envoie une capture dans le formulaire ci-dessous.</p>
   </section>
 
   <section class="section" id="inscription">
