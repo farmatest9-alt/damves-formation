@@ -84,6 +84,33 @@
   }
   .lede strong{color:var(--paper); font-weight:600;}
 
+  .badge-row{display:flex; gap:10px; margin-top:20px; flex-wrap:wrap;}
+  .audience-badge{
+    font-family:'Space Mono', monospace; font-size:12.5px; letter-spacing:0.04em;
+    border:1px solid var(--gold); color:var(--gold);
+    padding:6px 14px; border-radius:99px;
+  }
+
+  .dates-box{
+    margin-top:28px;
+    display:flex; align-items:center; gap:18px;
+    background:#1b1814; border:1px solid var(--line); border-radius:8px;
+    padding:18px 22px; max-width:fit-content;
+  }
+  .date-item{display:flex; flex-direction:column; gap:4px;}
+  .date-label{
+    font-family:'Space Mono', monospace; font-size:11px; text-transform:uppercase;
+    letter-spacing:0.06em; color:rgba(244,238,226,0.5);
+  }
+  .date-value{
+    font-family:'Fraunces', serif; font-weight:600; font-size:18px; color:var(--paper);
+  }
+  .date-sep{width:1px; height:32px; background:var(--line);}
+  @media (max-width:480px){
+    .dates-box{flex-direction:column; align-items:flex-start; gap:12px;}
+    .date-sep{display:none;}
+  }
+
   .cta-row{
     margin-top:34px; display:flex; gap:14px; flex-wrap:wrap;
   }
@@ -153,6 +180,10 @@
     font-family:'Space Mono', monospace; font-size:24px; font-weight:700; color:var(--gold);
   }
   .price span{font-size:13px; color:rgba(244,238,226,0.5); font-weight:400;}
+  .old-price{
+    font-size:15px; color:rgba(244,238,226,0.35); text-decoration:line-through;
+    font-weight:400; margin-right:6px;
+  }
 
   .includes{
     display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:8px;
@@ -244,7 +275,6 @@
   }
   @media (max-width:640px){ .video-grid{grid-template-columns:1fr;} }
   .video-item{display:flex; flex-direction:column; gap:8px;}
-  .video-item iframe-wrap{}
   .video-frame-box{
     position:relative; width:100%; padding-bottom:56.25%; height:0;
     border-radius:6px; overflow:hidden; border:1px solid var(--line); background:#000;
@@ -260,7 +290,22 @@
   <header>
     <div class="eyebrow">Damves · Formation IA</div>
     <h1>Crée ta <em>musique</em> et tes <em>vidéos</em> avec l'IA.</h1>
-    <p class="lede">Formation pratique pour débutants et étudiants. <strong>Aucune expérience requise</strong> — tu repars avec des créations concrètes et un accompagnement personnalisé.</p>
+    <p class="lede">Formation 100% en ligne via WhatsApp — création de vidéos, musiques et clips musicaux. <strong>Aucune expérience requise.</strong></p>
+    <div class="badge-row">
+      <span class="audience-badge">Débutant</span>
+      <span class="audience-badge">Étudiant</span>
+    </div>
+    <div class="dates-box">
+      <div class="date-item">
+        <span class="date-label">Fin d'inscription</span>
+        <span class="date-value">8 juillet</span>
+      </div>
+      <div class="date-sep"></div>
+      <div class="date-item">
+        <span class="date-label">Début de formation</span>
+        <span class="date-value">10 juillet</span>
+      </div>
+    </div>
     <div class="cta-row">
       <a href="#inscription" class="btn btn-primary">M'inscrire maintenant</a>
       <a href="#formations" class="btn btn-ghost">Voir les formations</a>
@@ -278,29 +323,29 @@
     <h2>Quatre parcours, un seul objectif : produire dès la première semaine.</h2>
 
     <div class="grid" id="cardGrid">
-      <div class="card" data-name="Création de musique simple" data-price="10000">
+      <div class="card" data-name="Création de musique simple" data-price="5000">
         <span class="card-tag">Musique</span>
         <h3>Création de musique simple</h3>
         <p>Génère tes premiers morceaux avec l'IA, de l'idée au fichier final.</p>
-        <div class="price">10 000 <span>FCFA</span></div>
+        <div class="price"><span class="old-price">10 000</span> 5 000 <span>FCFA</span></div>
       </div>
-      <div class="card" data-name="Création de musique avancée" data-price="15000">
+      <div class="card" data-name="Création de musique avancée" data-price="10000">
         <span class="card-tag">Musique</span>
         <h3>Création de musique avancée</h3>
         <p>Structure, mix et style pour des morceaux plus poussés.</p>
-        <div class="price">15 000 <span>FCFA</span></div>
+        <div class="price"><span class="old-price">15 000</span> 10 000 <span>FCFA</span></div>
       </div>
-      <div class="card" data-name="Création de vidéo IA" data-price="10000">
+      <div class="card" data-name="Création de vidéo IA" data-price="5000">
         <span class="card-tag">Vidéo</span>
         <h3>Création de vidéo IA</h3>
         <p>Génère des vidéos à partir de prompts simples et efficaces.</p>
-        <div class="price">10 000 <span>FCFA</span></div>
+        <div class="price"><span class="old-price">10 000</span> 5 000 <span>FCFA</span></div>
       </div>
-      <div class="card" data-name="Création de clips vidéo" data-price="20000">
+      <div class="card" data-name="Création de clips vidéo" data-price="10000">
         <span class="card-tag">Vidéo</span>
         <h3>Création de clips vidéo</h3>
         <p>Assemble musique et image IA pour produire un vrai clip.</p>
-        <div class="price">20 000 <span>FCFA</span></div>
+        <div class="price"><span class="old-price">15 000</span> 10 000 <span>FCFA</span></div>
       </div>
     </div>
   </section>
@@ -312,7 +357,7 @@
       <div class="inc-item">
         <div class="num">WhatsApp</div>
         <h4>Support envoyé</h4>
-        <p>Le contenu de la formation t'est envoyé directement par WhatsApp.</p>
+        <p>Après ton achat, le support de formation t'est envoyé directement par WhatsApp.</p>
       </div>
       <div class="inc-item">
         <div class="num">Email</div>
@@ -322,7 +367,7 @@
       <div class="inc-item">
         <div class="num">Groupe</div>
         <h4>Suivi continu</h4>
-        <p>Accès à un groupe de suivi pour poser tes questions et progresser.</p>
+        <p>Accès à un groupe de suivi WhatsApp pour poser tes questions et progresser.</p>
       </div>
     </div>
   </section>
@@ -366,7 +411,7 @@
     <div class="pay-box">
       <div class="ussd">*144*10*57420577*Montant#</div>
       <ol class="pay-steps">
-        <li>Remplace <strong>Montant</strong> par le prix de la formation choisie (ex. 10000).</li>
+        <li>Remplace <strong>Montant</strong> par le prix de la formation choisie (ex. 5000).</li>
         <li>Valide la transaction Orange Money sur ton téléphone.</li>
         <li>Garde la confirmation, puis envoie une capture dans le formulaire ci-dessous.</li>
       </ol>
@@ -392,10 +437,10 @@
       <div>
         <label for="formation">Formation choisie</label>
         <select id="formation">
-          <option>Création de musique simple — 10 000 FCFA</option>
-          <option>Création de musique avancée — 15 000 FCFA</option>
-          <option>Création de vidéo IA — 10 000 FCFA</option>
-          <option>Création de clips vidéo — 20 000 FCFA</option>
+          <option>Création de musique simple — 5 000 FCFA</option>
+          <option>Création de musique avancée — 10 000 FCFA</option>
+          <option>Création de vidéo IA — 5 000 FCFA</option>
+          <option>Création de clips vidéo — 10 000 FCFA</option>
         </select>
       </div>
       <button class="btn btn-primary submit-btn" type="submit" id="submitBtn">Valider mon inscription</button>
@@ -421,7 +466,6 @@
     });
   });
 
-  // Remplace par ton numéro WhatsApp au format international SANS le + ni espaces (ex: 22657420577)
   const WHATSAPP_NUMBER = "22663400608";
 
   document.getElementById('submitBtn').addEventListener('click', (e)=>{
