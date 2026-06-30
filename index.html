@@ -398,8 +398,8 @@
           <option>Création de clips vidéo — 20 000 FCFA</option>
         </select>
       </div>
-      <button class="btn btn-primary submit-btn" type="submit" onclick="alert('Formulaire à connecter à WhatsApp ou à votre backend de réception.')">Valider mon inscription</button>
-      <p class="form-note">Après validation, envoie ta capture de paiement Orange Money par WhatsApp pour recevoir ta formation.</p>
+      <button class="btn btn-primary submit-btn" type="submit" id="submitBtn">Valider mon inscription</button>
+      <p class="form-note">En validant, tu seras redirigé vers WhatsApp avec tes informations pré-remplies. Il ne restera qu'à envoyer le message.</p>
     </form>
   </section>
 </div>
@@ -419,6 +419,36 @@
       });
       document.getElementById('inscription').scrollIntoView({behavior:'smooth'});
     });
+  });
+
+  // Remplace par ton numéro WhatsApp au format international SANS le + ni espaces (ex: 22657420577)
+  const WHATSAPP_NUMBER = "22663400608";
+
+  document.getElementById('submitBtn').addEventListener('click', (e)=>{
+    e.preventDefault();
+    const nom = document.getElementById('nom').value.trim();
+    const whatsapp = document.getElementById('whatsapp').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const formation = document.getElementById('formation').value;
+
+    if(!nom || !whatsapp || !email){
+      alert("Merci de remplir tous les champs avant de continuer.");
+      return;
+    }
+
+    const message =
+`Bonjour, je souhaite m'inscrire à DigitTech.
+
+Nom complet : ${nom}
+WhatsApp : ${whatsapp}
+Email : ${email}
+Formation choisie : ${formation}
+
+Je vous envoie la capture de mon paiement Orange Money juste après ce message.`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+    window.open(waUrl, '_blank');
   });
 </script>
 
